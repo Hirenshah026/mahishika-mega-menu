@@ -1,0 +1,77 @@
+{
+  "categories": [
+    {
+      "name": "Services",
+      "slug": "services",
+      "description": "End-to-end digital services, from first idea to measurable growth.",
+      "sub_categories": [
+        { "name": "Brand Strategy", "description": "Positioning, naming and identity systems", "url": "#services" },
+        { "name": "UX & UI Design", "description": "Research-led interfaces people enjoy", "url": "#services" },
+        { "name": "Web Development", "description": "Fast, accessible sites and web apps", "url": "#services" },
+        { "name": "Mobile Apps", "description": "Native and cross-platform apps", "url": "#services" },
+        { "name": "Performance Marketing", "description": "SEO, paid media and CRO", "url": "#services" },
+        { "name": "Content & Social", "description": "Stories that build an audience", "url": "#services" }
+      ],
+      "posts": [
+        { "type": "article", "title": "How we cut page load time by 62%", "excerpt": "A practical guide to Core Web Vitals.", "image_url": "images/feature-1.svg", "url": "#work" }
+      ]
+    },
+    {
+      "name": "Industries",
+      "slug": "industries",
+      "description": "Deep domain experience across the sectors we serve.",
+      "sub_categories": [
+        { "name": "Healthcare", "description": "Patient-first digital journeys", "url": "#industries" },
+        { "name": "Fintech", "description": "Secure, compliant products", "url": "#industries" },
+        { "name": "E-commerce", "description": "Stores that convert", "url": "#industries" },
+        { "name": "Education", "description": "Learning platforms at scale", "url": "#industries" },
+        { "name": "Real Estate", "description": "Listings, portals and CRMs", "url": "#industries" },
+        { "name": "Travel & Hospitality", "description": "Booking experiences that delight", "url": "#industries" }
+      ],
+      "posts": [
+        { "type": "portfolio", "title": "CarePlus patient portal", "excerpt": "40% fewer support calls in 3 months.", "image_url": "images/feature-2.svg", "url": "#work" }
+      ]
+    },
+    {
+      "name": "Work",
+      "slug": "work",
+      "description": "Selected projects and the results they delivered.",
+      "sub_categories": [
+        { "name": "Case Studies", "description": "Deep dives into our projects", "url": "#work" },
+        { "name": "Web Platforms", "description": "Marketing sites and portals", "url": "#work" },
+        { "name": "Mobile Products", "description": "Apps on iOS and Android", "url": "#work" },
+        { "name": "Campaigns", "description": "Launches and growth campaigns", "url": "#work" }
+      ],
+      "posts": [
+        { "type": "portfolio", "title": "ShopNest re-platform", "excerpt": "2.3x conversion after redesign.", "image_url": "images/feature-3.svg", "url": "#work" },
+        { "type": "portfolio", "title": "PayLite mobile wallet", "excerpt": "1M downloads in the first year.", "image_url": "images/feature-1.svg", "url": "#work" }
+      ]
+    },
+    {
+      "name": "Approach",
+      "slug": "approach",
+      "description": "A clear, collaborative process with no surprises.",
+      "sub_categories": [
+        { "name": "Discover", "description": "Workshops, research and goals", "url": "#approach" },
+        { "name": "Design", "description": "Prototypes tested with real users", "url": "#approach" },
+        { "name": "Build", "description": "Agile sprints and weekly demos", "url": "#approach" },
+        { "name": "Grow", "description": "Measure, learn and improve", "url": "#approach" }
+      ],
+      "posts": [
+        { "type": "article", "title": "Our 4-step delivery playbook", "excerpt": "What working with us looks like.", "image_url": "images/feature-2.svg", "url": "#approach" }
+      ]
+    },
+    {
+      "name": "About",
+      "slug": "about",
+      "description": "A team of strategists, designers and engineers.",
+      "sub_categories": [
+        { "name": "Our Story", "description": "Who we are and why we exist", "url": "#about" },
+        { "name": "Team", "description": "Meet the people behind the work", "url": "#about" },
+        { "name": "Careers", "description": "Join a growing team", "url": "#about" },
+        { "name": "Contact", "description": "Say hello", "url": "#consultation" }
+      ],
+      "posts": []
+    }
+  ]
+}
