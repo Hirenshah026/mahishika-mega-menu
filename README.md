@@ -3,6 +3,9 @@
 A responsive, accessible mega menu used on a single Services landing page, with a small
 Laravel backend to manage the menu (categories, sub-categories, portfolio/articles).
 
+- **Live site:** https://mahishikamegamenu.netlify.app/
+- **Repository:** https://github.com/Hirenshah026/mahishika-mega-menu
+
 ## Setup and run
 
 ### 1. Frontend (static)
@@ -98,7 +101,7 @@ Full reports: [docs/lighthouse/](docs/lighthouse/).
 - JSON-LD structured data (`ProfessionalService` with its list of services).
 - `robots.txt` + `sitemap.xml` in `frontend/`. The backend's `robots.txt` blocks everything, and the admin pages use `noindex`.
 - The footer repeats the menu links in plain HTML, so crawlers can follow them without running JS.
-- **Before deploying:** replace `https://mahishika-digital.netlify.app/` with your real URL in `index.html`, `robots.txt` and `sitemap.xml`.
+- Live URL: https://mahishikamegamenu.netlify.app/. If the domain changes, update it in `index.html`, `robots.txt` and `sitemap.xml`.
 
 ## Alerts
 SweetAlert2 handles delete and logout confirmations, success toasts and validation pop-ups in the admin.

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mahishika-digital.netlify.app/sitemap.xml
+Sitemap: https://mahishikamegamenu.netlify.app/sitemap.xml
