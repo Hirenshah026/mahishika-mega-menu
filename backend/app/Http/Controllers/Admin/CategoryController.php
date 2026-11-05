@@ -19,7 +19,7 @@ class CategoryController extends Controller
 
     public function create()
     {
-        return view('admin.categories.form', ['category' => new Category(['is_active' => true])]);
+        return view('admin.categories.form', ['category' => new Category(['is_active' => true, 'color' => '#1270bf', 'url' => '#'])]);
     }
 
     public function store(Request $request)
@@ -56,6 +56,8 @@ class CategoryController extends Controller
             'name' => ['required', 'string', 'max:60'],
             'slug' => ['required', 'string', 'max:80', Rule::unique('categories')->ignore($category)],
             'description' => ['nullable', 'string', 'max:255'],
+            'color' => ['required', 'regex:/^#[0-9a-fA-F]{6}$/'],
+            'url' => ['required', 'string', 'max:255'],
             'sort_order' => ['required', 'integer', 'min:0'],
         ]);
 

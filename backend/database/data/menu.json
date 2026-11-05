@@ -1,77 +1,75 @@
 {
   "categories": [
     {
-      "name": "Services",
-      "slug": "services",
-      "description": "End-to-end digital services, from first idea to measurable growth.",
+      "name": "Design",
+      "slug": "design",
+      "color": "#f69313",
+      "url": "#services",
+      "description": "A brand people remember and screens they enjoy using.",
       "sub_categories": [
-        { "name": "Brand Strategy", "description": "Positioning, naming and identity systems", "url": "#services" },
-        { "name": "UX & UI Design", "description": "Research-led interfaces people enjoy", "url": "#services" },
-        { "name": "Web Development", "description": "Fast, accessible sites and web apps", "url": "#services" },
-        { "name": "Mobile Apps", "description": "Native and cross-platform apps", "url": "#services" },
-        { "name": "Performance Marketing", "description": "SEO, paid media and CRO", "url": "#services" },
-        { "name": "Content & Social", "description": "Stories that build an audience", "url": "#services" }
+        { "name": "Brand Identity", "description": "Logos, colors and guidelines your team can follow.", "url": "#services" },
+        { "name": "UI/UX Design", "description": "Websites and apps designed around real users.", "url": "#services" },
+        { "name": "Graphic Design", "description": "Social, print and campaign creatives on brand.", "url": "#services" },
+        { "name": "Packaging Design", "description": "Packs that stand out on the shelf and online.", "url": "#services" },
+        { "name": "Presentation Design", "description": "Pitch and sales decks that tell a clear story.", "url": "#services" },
+        { "name": "Illustration", "description": "Custom illustrations and icon sets.", "url": "#services" }
       ],
       "posts": [
-        { "type": "article", "title": "How we cut page load time by 62%", "excerpt": "A practical guide to Core Web Vitals.", "image_url": "images/feature-1.svg", "url": "#work" }
+        { "type": "portfolio", "title": "Lumen Foods: a packaging refresh that lifted shelf sales 18%", "excerpt": "Packaging redesign for a D2C food brand.", "image_url": "images/project-design.svg", "url": "#work" }
       ]
     },
     {
-      "name": "Industries",
-      "slug": "industries",
-      "description": "Deep domain experience across the sectors we serve.",
+      "name": "Video",
+      "slug": "video",
+      "color": "#db3226",
+      "url": "#services",
+      "description": "Videos people finish watching, made for every channel.",
       "sub_categories": [
-        { "name": "Healthcare", "description": "Patient-first digital journeys", "url": "#industries" },
-        { "name": "Fintech", "description": "Secure, compliant products", "url": "#industries" },
-        { "name": "E-commerce", "description": "Stores that convert", "url": "#industries" },
-        { "name": "Education", "description": "Learning platforms at scale", "url": "#industries" },
-        { "name": "Real Estate", "description": "Listings, portals and CRMs", "url": "#industries" },
-        { "name": "Travel & Hospitality", "description": "Booking experiences that delight", "url": "#industries" }
+        { "name": "Brand Films", "description": "Your story, shot and edited for the big screen.", "url": "#services" },
+        { "name": "Explainer Videos", "description": "Complex products made simple in 90 seconds.", "url": "#services" },
+        { "name": "Social Video", "description": "Reels and shorts built for the scroll.", "url": "#services" },
+        { "name": "Product Videos", "description": "Demos and ads that show the product working.", "url": "#services" },
+        { "name": "Motion Graphics", "description": "Animated titles, logos and data stories.", "url": "#services" }
       ],
       "posts": [
-        { "type": "portfolio", "title": "CarePlus patient portal", "excerpt": "40% fewer support calls in 3 months.", "image_url": "images/feature-2.svg", "url": "#work" }
+        { "type": "portfolio", "title": "PayLite: a launch film with 2M views in its first month", "excerpt": "Launch campaign film for a fintech app.", "image_url": "images/project-video.svg", "url": "#work" }
       ]
     },
     {
-      "name": "Work",
-      "slug": "work",
-      "description": "Selected projects and the results they delivered.",
+      "name": "Tech",
+      "slug": "tech",
+      "color": "#32c1e2",
+      "url": "#services",
+      "description": "A site, store, or app that works without babysitting.",
       "sub_categories": [
-        { "name": "Case Studies", "description": "Deep dives into our projects", "url": "#work" },
-        { "name": "Web Platforms", "description": "Marketing sites and portals", "url": "#work" },
-        { "name": "Mobile Products", "description": "Apps on iOS and Android", "url": "#work" },
-        { "name": "Campaigns", "description": "Launches and growth campaigns", "url": "#work" }
+        { "name": "Website Development", "description": "Fast sites your team can update themselves.", "url": "#services" },
+        { "name": "WordPress & E-commerce", "description": "Stores built to sell, on WooCommerce or Shopify.", "url": "#services" },
+        { "name": "Web & Custom Software", "description": "Portals, dashboards, and tools around your workflow.", "url": "#services" },
+        { "name": "Mobile App Development", "description": "iOS and Android apps, built once and maintained.", "url": "#services" },
+        { "name": "Integrations & Automation", "description": "Payments, CRMs, and ERPs, connected and tested.", "url": "#services" },
+        { "name": "Hosting & Maintenance", "description": "Uptime, backups, and security, handled.", "url": "#services" }
       ],
       "posts": [
-        { "type": "portfolio", "title": "ShopNest re-platform", "excerpt": "2.3x conversion after redesign.", "image_url": "images/feature-3.svg", "url": "#work" },
-        { "type": "portfolio", "title": "PayLite mobile wallet", "excerpt": "1M downloads in the first year.", "image_url": "images/feature-1.svg", "url": "#work" }
+        { "type": "portfolio", "title": "ShopNest: checkout rebuilt and mobile load time cut in half", "excerpt": "E-commerce re-platform.", "image_url": "images/project-tech.svg", "url": "#work" }
       ]
     },
     {
-      "name": "Approach",
-      "slug": "approach",
-      "description": "A clear, collaborative process with no surprises.",
+      "name": "Marketing",
+      "slug": "marketing",
+      "color": "#10a55f",
+      "url": "#services",
+      "description": "Growth you can measure, from the first click to the bank account.",
       "sub_categories": [
-        { "name": "Discover", "description": "Workshops, research and goals", "url": "#approach" },
-        { "name": "Design", "description": "Prototypes tested with real users", "url": "#approach" },
-        { "name": "Build", "description": "Agile sprints and weekly demos", "url": "#approach" },
-        { "name": "Grow", "description": "Measure, learn and improve", "url": "#approach" }
+        { "name": "Analytics & Tracking", "description": "GA4, Tag Manager and dashboards you can trust.", "url": "#services" },
+        { "name": "SEO", "description": "Rank for the searches that bring buyers.", "url": "#services" },
+        { "name": "Performance Marketing", "description": "Google and Meta ads managed for ROI.", "url": "#services" },
+        { "name": "Social Media", "description": "Content calendars and community management.", "url": "#services" },
+        { "name": "Email & CRM", "description": "Automated journeys that bring customers back.", "url": "#services" },
+        { "name": "Content Marketing", "description": "Articles and guides that earn trust and links.", "url": "#services" }
       ],
       "posts": [
-        { "type": "article", "title": "Our 4-step delivery playbook", "excerpt": "What working with us looks like.", "image_url": "images/feature-2.svg", "url": "#approach" }
+        { "type": "portfolio", "title": "CarePlus: one trusted view of leads across six channels", "excerpt": "Analytics and tracking setup.", "image_url": "images/project-marketing.svg", "url": "#work" }
       ]
-    },
-    {
-      "name": "About",
-      "slug": "about",
-      "description": "A team of strategists, designers and engineers.",
-      "sub_categories": [
-        { "name": "Our Story", "description": "Who we are and why we exist", "url": "#about" },
-        { "name": "Team", "description": "Meet the people behind the work", "url": "#about" },
-        { "name": "Careers", "description": "Join a growing team", "url": "#about" },
-        { "name": "Contact", "description": "Say hello", "url": "#consultation" }
-      ],
-      "posts": []
     }
   ]
 }

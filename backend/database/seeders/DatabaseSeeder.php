@@ -27,6 +27,8 @@ class DatabaseSeeder extends Seeder
                 'name' => $item['name'],
                 'slug' => $item['slug'],
                 'description' => $item['description'],
+                'color' => $item['color'],
+                'url' => $item['url'],
                 'sort_order' => $index + 1,
             ]);
 

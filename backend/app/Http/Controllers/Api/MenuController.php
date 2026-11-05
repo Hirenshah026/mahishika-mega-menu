@@ -26,8 +26,11 @@ class MenuController extends Controller
                 'name' => $category->name,
                 'slug' => $category->slug,
                 'description' => $category->description,
+                'color' => $category->color,
+                'url' => $category->url,
                 'sub_categories' => $category->subCategories->map->only(['id', 'name', 'description', 'url'])->values(),
-                'posts' => $category->posts->take(2)->map->only(['id', 'type', 'title', 'excerpt', 'image_url', 'url'])->values(),
+                // The panel shows one "Featured project"
+                'posts' => $category->posts->take(1)->map->only(['id', 'type', 'title', 'excerpt', 'image_url', 'url'])->values(),
             ]);
 
         return response()->json(['categories' => $categories]);

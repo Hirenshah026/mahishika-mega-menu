@@ -19,6 +19,7 @@
                 <tr>
                     <td><span class="badge badge-soft-muted">#{{ $category->sort_order }}</span></td>
                     <td>
+                        <span class="d-inline-block rounded-circle me-1" style="width: 10px; height: 10px; background: {{ $category->color }}"></span>
                         <strong>{{ $category->name }}</strong><br>
                         <small class="text-muted">/{{ $category->slug }}</small>
                     </td>
