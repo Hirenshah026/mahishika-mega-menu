@@ -63,23 +63,34 @@ backend/
   database/migrations, seeders      Tables + seed data (database/data/menu.json)
 ```
 
-**Data model:** Category (top menu item) → Sub-categories (links in the panel) and
-Posts (portfolio/article cards featured in the panel).
+**Data model:** Category = a service group in the mega menu (Design, Video, Tech, Marketing; with a dot color
+and an "Explore … hub" link) → Sub-categories (the group's service links) and Posts (the "Featured project" card).
+
+## Mega menu layout (matches the Zeplin design)
+Top menu: **Services** (opens the mega menu), Portfolio, Industries, About, Blog, Contact + "Book a growth audit".
+The Services panel has 3 columns: service groups on the left, the selected group's links in the middle,
+and a featured project on the right, plus a footer bar. The page behind is dimmed while it is open.
+On screens below 992px the groups are listed one after another inside the drawer.
 
 ## Accessibility decisions
-- `<nav aria-label="Main">`, `<ul>` lists and real `<button>`s for top-level items.
-- Disclosure pattern: each button has `aria-expanded` and `aria-controls` pointing to its panel.
-  `aria-haspopup` is not used because the panels hold normal links, not an ARIA `menu`.
+- `<nav aria-label="Main">`, `<ul>` lists and a real `<button>` for Services.
+- Disclosure pattern: the Services button has `aria-expanded` and `aria-controls` pointing to its panel.
+  `aria-haspopup` is not used because the panel holds normal links, not an ARIA `menu`.
+- The group list on the left is an ARIA **tabs** pattern (`role="tablist"`, `aria-selected`, roving `tabindex`),
+  because choosing a group swaps the content next to it.
 - Keyboard:
   - Tab / Shift+Tab move through items as usual.
-  - Enter / Space open or close a panel.
+  - Enter / Space open or close the panel.
   - Arrow Left/Right (desktop) or Up/Down (mobile) move between top-level items. Home/End jump to the first or last item.
-  - Arrow Down on a desktop item opens the panel and focuses its first link. Up/Down move between links.
-  - Esc closes the panel and returns focus to its button. A second Esc closes the mobile drawer.
-- Focus leaving a panel closes it. A click outside closes it too.
+  - Arrow Down on Services (desktop) opens the panel and focuses the selected group.
+  - In the group list, Up/Down switch groups and Right jumps into that group's links.
+  - In the links, Up/Down move between links and Left goes back to the group list.
+  - Esc closes the panel and returns focus to Services. A second Esc closes the mobile drawer.
+- Focus leaving the panel closes it. A click outside (or on the dimmed page) closes it too.
 - Visible focus ring (3px, contrast ≥ 3:1), a skip link, and 44px touch targets.
 - Text colors pass WCAG AA in light and dark themes. `prefers-reduced-motion` turns off animations.
-- Panels open on **click, not hover**. This works the same with mouse, touch and keyboard, and avoids accidental opens.
+- The panel opens on **click, not hover**. This works the same with mouse, touch and keyboard, and avoids accidental opens.
+  Inside the open panel, hovering a group switches to it, as in the design.
 
 ## Performance
 **Lighthouse: 100 / 100 / 100 / 100** (Performance, Accessibility, Best Practices, SEO) on mobile and desktop.
@@ -91,7 +102,8 @@ Full reports: [docs/lighthouse/](docs/lighthouse/).
   Bump the number after editing a file.
 - The Laravel API is only called on `localhost`. The live site reads `data/menu.json`, so there are no blocked
   `http://` requests or console errors.
-- No framework JS and no web fonts (system font stack).
+- No framework JS. Poppins (the design's font) is self-hosted: five 8 KB files, the two main weights preloaded,
+  and a size-matched fallback font so text doesn't shift when Poppins loads.
 - Images have `width`/`height` (no layout shift) and `loading="lazy"`.
 - The header has a fixed height, so the menu loading late does not move the page.
 
@@ -113,10 +125,22 @@ On the public page it shows the form result. It loads only when someone starts f
 
 ## Responsive
 Tested layouts at 320, 375, 768, 1024, 1280 and 1536px. Below 992px the menu becomes a drawer
-with accordion panels.
+where Services expands to show every group.
 
 ## Assumptions
-- I had no Zeplin access, so the visual design is my own. It uses the same structure: intro, links and featured cards.
+- The header and mega menu follow the Zeplin design (colors, Poppins, layout). The top menu items follow the design
+  rather than the PDF brief (which listed Services, Industries, Work, Approach, About).
+- Zeplin had no mobile design, so the mobile layout is my own: menu groups are stacked, the featured project is hidden,
+  and the audit form sits under the hero.
+- The page is the Zeplin "Analytics & Tracking" service page. The top of the hero was hidden under the open menu in the
+  design export, so the breadcrumb, headline and intro are my own, styled to match.
+- The design's placeholders ("[Client name]", "₹[00L]") are filled with sample content. The testimonial keeps the
+  design's "Sample copy" label, and the case studies are labelled as samples, so nothing reads as a real client claim.
+- The design's reviewer notes (the top "page draft" bar, "Link each chip to its industry page…") are not shown.
+- Portfolio, Industries, About, Blog and Contact would be separate pages on the real site. Here they jump to the
+  matching section (Blog → "More from Marketing", About/Contact → footer).
+- The form combines "Where should we start?" and the ticked services into the API's `service` field, so the backend
+  did not need to change.
 - The backend URL is set in `frontend/js/main.js` (`API_URL`).
 
 ## Known limitations / next steps
