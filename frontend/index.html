@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Digital Agency Services: Branding, Web &amp; Marketing | Mahishika Digital</title>
-  <meta name="description" content="Mahishika Digital offers brand strategy, UX/UI design, web and mobile app development, SEO and performance marketing. Book a free consultation today.">
+  <title>Analytics &amp; Tracking Services: GA4, Tag Manager &amp; Dashboards | Mahishika Digital</title>
+  <meta name="description" content="Mahishika Digital sets up GA4, Google Tag Manager, conversion tracking and revenue dashboards so every channel reports the same number. Book a free growth audit.">
   <meta name="robots" content="index, follow">
   <!-- Live URL. If the domain changes, update it here, in robots.txt and in sitemap.xml -->
   <link rel="canonical" href="https://mahishikamegamenu.netlify.app/">
-  <meta name="theme-color" content="#4338ca">
+  <meta name="theme-color" content="#1270bf">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
   <!-- Social sharing (Facebook, LinkedIn, WhatsApp, X) -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Mahishika Digital">
-  <meta property="og:title" content="Digital Agency Services | Mahishika Digital">
-  <meta property="og:description" content="Brand strategy, design, development and marketing that help ambitious brands grow.">
+  <meta property="og:title" content="Analytics &amp; Tracking | Mahishika Digital">
+  <meta property="og:description" content="GA4, Tag Manager, conversion tracking and dashboards you can trust. Book a free growth audit.">
   <meta property="og:url" content="https://mahishikamegamenu.netlify.app/">
   <meta property="og:image" content="https://mahishikamegamenu.netlify.app/images/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -23,28 +23,37 @@
   <meta property="og:image:alt" content="Mahishika Digital – Digital services that help ambitious brands grow">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Structured data: helps Google understand the business and its services -->
+  <!-- Structured data: the service and its FAQ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Mahishika Digital",
+    "@type": "Service",
+    "name": "Analytics & Tracking",
+    "serviceType": "Marketing analytics and conversion tracking",
     "url": "https://mahishikamegamenu.netlify.app/",
-    "logo": "https://mahishikamegamenu.netlify.app/favicon.svg",
-    "image": "https://mahishikamegamenu.netlify.app/images/og-image.png",
-    "description": "Digital agency offering brand strategy, UX/UI design, web and mobile development, and performance marketing.",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Digital services",
-      "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brand Strategy" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "UX & UI Design" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Development" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile Apps" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Performance Marketing" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Content & Social" } }
-      ]
+    "description": "GA4 and event setup, Google Tag Manager, conversion tracking and revenue dashboards.",
+    "areaServed": "IN",
+    "provider": {
+      "@type": "ProfessionalService",
+      "name": "Mahishika Digital",
+      "url": "https://mahishikamegamenu.netlify.app/",
+      "logo": "https://mahishikamegamenu.netlify.app/favicon.svg",
+      "email": "chat@mahishika.com",
+      "telephone": "+91 8595 117 352"
     }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Do we need GA4 if we already use other tools?", "acceptedAnswer": { "@type": "Answer", "text": "Usually yes. GA4 is free, connects to Google Ads, and gives a neutral view across channels that platform reports don't." } },
+      { "@type": "Question", "name": "What is server-side tracking, and do we need it?", "acceptedAnswer": { "@type": "Answer", "text": "Server-side tracking sends events from your server instead of the browser, so ad blockers and browser limits lose less data. It helps most when you spend heavily on Meta or Google Ads." } },
+      { "@type": "Question", "name": "How do you handle cookie consent and privacy?", "acceptedAnswer": { "@type": "Answer", "text": "We set up Google Consent Mode with your cookie banner, so tags only collect what each visitor allows, and we keep personal data out of analytics." } },
+      { "@type": "Question", "name": "Can you connect our CRM data to ad platforms?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We send qualified leads and sales from HubSpot or your CRM back to Google Ads and Meta as offline conversions, so the platforms optimise for real revenue." } },
+      { "@type": "Question", "name": "How long does a tracking setup take?", "acceptedAnswer": { "@type": "Answer", "text": "An audit takes about a week. A full setup with dashboards usually takes three to five weeks, depending on how many platforms and events you have." } }
+    ]
   }
   </script>
 
@@ -66,16 +75,18 @@
   </script>
 
   <!-- Bootstrap 5.3.3 with unused CSS removed (see purgecss.config.cjs). No Bootstrap JS / navbar. -->
-  <!-- ?v=2 : change the number after editing a file so browsers download the new version -->
-  <link rel="stylesheet" href="css/vendor/bootstrap.min.css?v=2">
-  <link rel="stylesheet" href="css/tokens.css?v=2">
-  <link rel="stylesheet" href="css/base.css?v=2">
-  <link rel="stylesheet" href="css/megamenu.css?v=3">
-  <link rel="stylesheet" href="css/page.css?v=2">
+  <!-- ?v= : change the number after editing a file so browsers download the new version -->
+  <link rel="preload" href="fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/poppins-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/vendor/bootstrap.min.css?v=4">
+  <link rel="stylesheet" href="css/tokens.css?v=4">
+  <link rel="stylesheet" href="css/base.css?v=4">
+  <link rel="stylesheet" href="css/megamenu.css?v=5">
+  <link rel="stylesheet" href="css/page.css?v=4">
 
   <script src="js/analytics.js?v=2" defer></script>
-  <script src="js/megamenu.js?v=2" defer></script>
-  <script src="js/main.js?v=2" defer></script>
+  <script src="js/megamenu.js?v=3" defer></script>
+  <script src="js/main.js?v=4" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -84,14 +95,30 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#top">
-        <span class="brand-mark" aria-hidden="true">M</span>
-        Mahishika Digital
+        <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+          <circle class="logo-ring" cx="23" cy="20" r="14"/>
+          <circle class="logo-dot" cx="23" cy="20" r="5"/>
+          <path class="logo-lines" d="M3 14h9M1.5 20h11M3 26h9"/>
+        </svg>
+        <span class="brand-name">Mahishika <span>Digital</span></span>
       </a>
 
       <nav id="primary-nav" class="primary-nav" aria-label="Main">
-        <!-- Filled by js/megamenu.js -->
-        <ul class="mm-list"></ul>
-        <a class="btn-cta" href="#consultation">Book a Consultation</a>
+        <ul class="mm-list">
+          <li>
+            <button class="mm-top mm-trigger" type="button" aria-expanded="false" aria-controls="mm-panel-services">
+              Services <span class="mm-caret" aria-hidden="true"></span>
+            </button>
+            <!-- Filled by js/megamenu.js from the API / data/menu.json -->
+            <div class="mm-panel" id="mm-panel-services" hidden></div>
+          </li>
+          <li><a class="mm-top" href="#portfolio">Portfolio</a></li>
+          <li><a class="mm-top" href="#industries">Industries</a></li>
+          <li><a class="mm-top" href="#about">About</a></li>
+          <li><a class="mm-top" href="#more">Blog</a></li>
+          <li><a class="mm-top" href="#contact">Contact</a></li>
+        </ul>
+        <a class="btn-cta" href="#audit">Book a growth audit</a>
       </nav>
 
       <div class="header-actions">
@@ -104,210 +131,445 @@
       </div>
     </div>
   </header>
+  <!-- Dims the page while the Services panel is open (desktop) -->
+  <div class="mm-backdrop" hidden></div>
 
-  <main id="main">
-    <!-- ===== Hero ===== -->
-    <section id="top" class="hero">
-      <div class="container">
-        <p class="eyebrow">Our services</p>
-        <h1>Digital services that help ambitious brands grow.</h1>
-        <p class="lead-text">Strategy, design, engineering and marketing under one roof, built around the results your business needs.</p>
-        <div class="d-flex flex-wrap gap-3">
-          <a class="btn-cta" href="#consultation">Book a Consultation</a>
-          <a class="btn-ghost" href="#work">See our work</a>
+  <main id="main" class="container page-layout">
+
+    <!-- ===== Hero (left column) ===== -->
+    <section id="top" class="hero" aria-labelledby="hero-title">
+      <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="#top">Services</a></li>
+          <li><a href="#top">Marketing</a></li>
+          <li aria-current="page">Analytics &amp; Tracking</li>
+        </ol>
+      </nav>
+      <p class="hero-tag"><span class="dot" style="--dot: var(--dot-marketing)" aria-hidden="true"></span>Marketing · Analytics &amp; Tracking</p>
+      <h1 id="hero-title">Analytics and tracking you can finally trust.</h1>
+      <p class="lead-text">We set up GA4, Tag Manager and conversion tracking so every channel reports the same number, then build the dashboard that shows what actually drives revenue.</p>
+
+      <figure class="dashboard">
+        <figcaption class="dashboard-label">Revenue dashboard · All channels</figcaption>
+        <div class="kpis">
+          <div class="kpi"><span class="kpi-label">Revenue</span><span class="kpi-value">₹42L</span></div>
+          <div class="kpi"><span class="kpi-label">Leads</span><span class="kpi-value">1,280</span></div>
+          <div class="kpi"><span class="kpi-label">CPA</span><span class="kpi-value">₹680</span></div>
+          <div class="kpi"><span class="kpi-label">ROAS</span><span class="kpi-value">4.2x</span></div>
         </div>
-      </div>
+        <div class="chart" role="img" aria-label="Revenue by channel: Email highest, then Paid, Social, Referral and SEO">
+          <div class="bar" style="--h: 48%"><span>SEO</span></div>
+          <div class="bar" style="--h: 82%"><span>Paid</span></div>
+          <div class="bar" style="--h: 64%"><span>Social</span></div>
+          <div class="bar" style="--h: 100%"><span>Email</span></div>
+          <div class="bar" style="--h: 40%"><span>Referral</span></div>
+        </div>
+      </figure>
     </section>
 
-    <!-- ===== Services ===== -->
-    <section id="services" class="section">
-      <div class="container">
-        <h2 class="section-title">What we do</h2>
-        <div class="row g-4">
-          <div class="col-sm-6 col-lg-4"><article class="card-box"><h3>Brand Strategy</h3><p>Positioning, naming and identity systems that make you stand out.</p></article></div>
-          <div class="col-sm-6 col-lg-4"><article class="card-box"><h3>UX &amp; UI Design</h3><p>Research-led interfaces that are easy and enjoyable to use.</p></article></div>
-          <div class="col-sm-6 col-lg-4"><article class="card-box"><h3>Web Development</h3><p>Fast, accessible websites and web apps that scale.</p></article></div>
-          <div class="col-sm-6 col-lg-4"><article class="card-box"><h3>Mobile Apps</h3><p>Native and cross-platform apps for iOS and Android.</p></article></div>
-          <div class="col-sm-6 col-lg-4"><article class="card-box"><h3>Performance Marketing</h3><p>SEO, paid media and conversion optimisation.</p></article></div>
-          <div class="col-sm-6 col-lg-4"><article class="card-box"><h3>Content &amp; Social</h3><p>Stories and campaigns that build a loyal audience.</p></article></div>
-        </div>
-      </div>
-    </section>
+    <!-- ===== Growth audit form (right column, stays in view on desktop) ===== -->
+    <aside class="audit" id="audit" aria-labelledby="audit-title">
+      <form id="consultation-form" class="audit-card" novalidate>
+        <h2 id="audit-title" class="audit-title">Get a free growth audit</h2>
+        <p class="audit-sub">We reply within one business day.</p>
 
-    <!-- ===== Industries ===== -->
-    <section id="industries" class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">Industries we serve</h2>
-        <ul class="pill-list">
-          <li>Healthcare</li><li>Fintech</li><li>E-commerce</li>
-          <li>Education</li><li>Real Estate</li><li>Travel &amp; Hospitality</li>
+        <div class="field">
+          <label class="form-label" for="name">Name</label>
+          <input class="form-control" id="name" name="name" autocomplete="name" required>
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="field">
+          <label class="form-label" for="email">Work email</label>
+          <input class="form-control" id="email" name="email" type="email" autocomplete="email" required>
+          <div class="invalid-feedback"></div>
+        </div>
+        <div class="field">
+          <label class="form-label" for="start">Where should we start?</label>
+          <select class="form-select" id="start" name="start">
+            <option>Not sure yet</option>
+            <option>Foundation (GA4 setup)</option>
+            <option>Conversion tracking</option>
+            <option>Reporting and dashboards</option>
+          </select>
+        </div>
+        <fieldset class="field">
+          <legend class="form-label">What do you need help with?</legend>
+          <div class="check-pills">
+            <label><input type="checkbox" name="help" value="Design"> Design</label>
+            <label><input type="checkbox" name="help" value="Video"> Video</label>
+            <label><input type="checkbox" name="help" value="Tech"> Tech</label>
+            <label><input type="checkbox" name="help" value="Marketing"> Marketing</label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label class="form-label" for="message">What's not working today?</label>
+          <textarea class="form-control" id="message" name="message" rows="3" minlength="10" required></textarea>
+          <div class="invalid-feedback"></div>
+        </div>
+
+        <button class="btn-cta audit-submit" type="submit">Book my growth audit</button>
+        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+        <a class="audit-link" href="mailto:chat@mahishika.com?subject=Free%20discussion%20with%20an%20expert">Book a free discussion with Expert</a>
+
+        <ul class="audit-points">
+          <li><span class="dot" style="--dot: var(--dot-design)" aria-hidden="true"></span>Talk to the team that does the work</li>
+          <li><span class="dot" style="--dot: var(--dot-video)" aria-hidden="true"></span>Leave with a ranked list of gaps</li>
+          <li><span class="dot" style="--dot: var(--dot-tech)" aria-hidden="true"></span>No obligation to use all four services</li>
         </ul>
-      </div>
-    </section>
+      </form>
+    </aside>
 
-    <!-- ===== Work ===== -->
-    <section id="work" class="section">
-      <div class="container">
-        <h2 class="section-title">Selected work</h2>
+    <div class="content">
+      <!-- In-page tabs: highlight the section in view (js/main.js) -->
+      <nav class="subnav" aria-label="On this page">
+        <ul>
+          <li><a href="#overview" aria-current="true">Overview</a></li>
+          <li><a href="#what-we-build">What we build</a></li>
+          <li><a href="#where-to-start">Where to start</a></li>
+          <li><a href="#how-it-connects">How it connects</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <!-- ===== Overview ===== -->
+      <section id="overview" class="section" aria-labelledby="overview-title">
+        <h2 id="overview-title" class="section-title">Every channel reports a different number.</h2>
+        <p class="section-sub">Without trustworthy tracking, every budget decision is a guess.</p>
         <div class="row g-4">
-          <div class="col-md-4">
-            <article class="work-card">
-              <img src="images/feature-3.svg" alt="ShopNest online store redesign" width="600" height="400" loading="lazy" decoding="async">
-              <h3>ShopNest re-platform</h3><p>2.3x conversion after redesign.</p>
+          <div class="col-md-6"><blockquote class="quote-card" style="--accent: var(--dot-design)"><p class="quote">“Google and Meta both claim the same sale.”</p><p>Each platform counts conversions its own way.</p></blockquote></div>
+          <div class="col-md-6"><blockquote class="quote-card" style="--accent: var(--dot-video)"><p class="quote">“Our GA4 numbers don’t match our CRM.”</p><p>Events and conversions were never set up consistently.</p></blockquote></div>
+          <div class="col-md-6"><blockquote class="quote-card" style="--accent: var(--dot-tech)"><p class="quote">“We don’t know which channel drives revenue.”</p><p>Leads lose their source somewhere between the click and the deal.</p></blockquote></div>
+          <div class="col-md-6"><blockquote class="quote-card" style="--accent: var(--dot-marketing)"><p class="quote">“Our reports take a week to put together.”</p><p>Data lives in five tools and a spreadsheet.</p></blockquote></div>
+        </div>
+        <p class="callout">Every channel depends on tracking being right first. That’s why it’s usually where we start.</p>
+      </section>
+
+      <!-- ===== What we build ===== -->
+      <section id="what-we-build" class="section" aria-labelledby="build-title">
+        <h2 id="build-title" class="section-title">Four parts of measurement, one source of truth.</h2>
+        <p class="section-sub">Each part fixes a gap. Together, you see the whole funnel.</p>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <article class="part-card">
+              <h3>GA4 and event setup</h3>
+              <p>The foundation every report depends on.</p>
+              <ul class="dot-list"><li>GA4 property and event plan</li><li>Ecommerce and lead events</li><li>Consent mode setup</li></ul>
             </article>
           </div>
-          <div class="col-md-4">
-            <article class="work-card">
-              <img src="images/feature-2.svg" alt="CarePlus patient portal" width="600" height="400" loading="lazy" decoding="async">
-              <h3>CarePlus patient portal</h3><p>40% fewer support calls in 3 months.</p>
+          <div class="col-md-6">
+            <article class="part-card">
+              <h3>Tag management</h3>
+              <p>Tags that fire when they should.</p>
+              <ul class="dot-list"><li>Google Tag Manager setup</li><li>Server-side tagging</li><li>Tag audits and cleanup</li></ul>
             </article>
           </div>
-          <div class="col-md-4">
-            <article class="work-card">
-              <img src="images/feature-1.svg" alt="PayLite mobile wallet app" width="600" height="400" loading="lazy" decoding="async">
-              <h3>PayLite mobile wallet</h3><p>1M downloads in the first year.</p>
+          <div class="col-md-6">
+            <article class="part-card">
+              <h3>Conversion tracking</h3>
+              <p>Platforms that learn from real results.</p>
+              <ul class="dot-list"><li>Meta Pixel and Conversions API</li><li>Google Ads conversions</li><li>Offline and CRM conversions</li></ul>
+            </article>
+          </div>
+          <div class="col-md-6">
+            <article class="part-card">
+              <h3>Dashboards and reporting</h3>
+              <p>One view of what drives revenue.</p>
+              <ul class="dot-list"><li>Looker Studio dashboards</li><li>Channel attribution views</li><li>Monthly ROI reporting</li></ul>
             </article>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ===== Approach ===== -->
-    <section id="approach" class="section section-alt">
-      <div class="container">
-        <h2 class="section-title">Our approach</h2>
-        <p class="section-intro">A simple four-step process, so you always know what happens next.</p>
-        <ol class="row g-4 steps">
-          <li class="col-sm-6 col-lg-3">
-            <div class="step-card">
-              <h3>Discover</h3>
-              <p>Workshops and research to set clear goals.</p>
-              <span class="step-time">Week 1–2</span>
+      <!-- ===== Outcomes ===== -->
+      <section class="section" aria-labelledby="outcomes-title">
+        <h2 id="outcomes-title" class="section-title">What you walk away with.</h2>
+        <p class="section-sub">One version of the truth, updated automatically.</p>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="outcome-card is-mint">
+              <h3>Delivered</h3>
+              <ul class="big-dot-list"><li>A clean GA4 and Tag Manager setup</li><li>Conversion tracking on every ad platform</li><li>A revenue dashboard across channels</li></ul>
             </div>
+          </div>
+          <div class="col-md-6">
+            <div class="outcome-card">
+              <h3>What changes for you</h3>
+              <ul class="big-dot-list"><li>Budget decisions start from real data</li><li>Ad platforms optimise on real conversions</li><li>Reporting takes minutes, not days</li></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Where to start ===== -->
+      <section id="where-to-start" class="section" aria-labelledby="start-title">
+        <h2 id="start-title" class="section-title">Where should your tracking start?</h2>
+        <p class="section-sub">It depends on what you can’t see today.</p>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <article class="start-card is-mint">
+              <h3>Foundation first</h3>
+              <p>Your GA4 setup is missing or broken.</p>
+              <ul class="dot-list is-small"><li>Missing or duplicated events</li><li>Numbers that don’t add up</li></ul>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="start-card">
+              <h3>Conversions first</h3>
+              <p>Ad platforms can’t see what converts.</p>
+              <ul class="dot-list is-small"><li>No Conversions API</li><li>Leads not linked to campaigns</li></ul>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="start-card">
+              <h3>Reporting first</h3>
+              <p>The data exists but nobody can read it.</p>
+              <ul class="dot-list is-small"><li>Manual weekly reports</li><li>No single dashboard</li></ul>
+            </article>
+          </div>
+        </div>
+        <p class="note">Most setups need all three. The audit shows which gap is costing you the most.</p>
+      </section>
+
+      <!-- ===== How it connects ===== -->
+      <section id="how-it-connects" class="section" aria-labelledby="connects-title">
+        <h2 id="connects-title" class="section-title">Tracking that every other team depends on.</h2>
+        <p class="section-sub">Analytics only works if every channel and page is measured the same way.</p>
+        <div class="system">
+          <div class="system-hub is-mint">
+            <p class="system-title">Your measurement system</p>
+            <p>Built by Marketing, used by three other disciplines</p>
+          </div>
+          <div class="row g-3">
+            <div class="col-md-4">
+              <article class="team-card" style="--accent: var(--dot-design)">
+                <h3>Design uses it</h3>
+                <p>Heatmaps and funnel data show which layouts actually convert.</p>
+                <a href="#top">Explore design</a>
+              </article>
+            </div>
+            <div class="col-md-4">
+              <article class="team-card" style="--accent: var(--dot-video)">
+                <h3>Video uses it</h3>
+                <p>View and retention data decide which videos get more budget.</p>
+                <a href="#top">Explore video</a>
+              </article>
+            </div>
+            <div class="col-md-4">
+              <article class="team-card" style="--accent: var(--dot-tech)">
+                <h3>Tech feeds it</h3>
+                <p>Clean code and a data layer make tracking accurate and fast.</p>
+                <a href="#top">Explore tech</a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Process ===== -->
+      <section id="process" class="section" aria-labelledby="process-title">
+        <h2 id="process-title" class="section-title">How an analytics engagement runs.</h2>
+        <p class="section-sub">Our 4-D Growth Framework, applied to measurement.</p>
+        <ol class="steps">
+          <li style="--accent: var(--dot-design)">
+            <h3>Discover and audit</h3>
+            <p>We audit your GA4, tags, pixels and CRM data, and list every gap.</p>
+            <p class="step-get">You get: a tracking audit with fixes ranked.</p>
           </li>
-          <li class="col-sm-6 col-lg-3">
-            <div class="step-card">
-              <h3>Design</h3>
-              <p>Prototypes tested with real users.</p>
-              <span class="step-time">Week 3–5</span>
-            </div>
+          <li style="--accent: var(--dot-video)">
+            <h3>Design and architect</h3>
+            <p>We write a measurement plan: events, conversions and dashboards.</p>
+            <p class="step-get">You get: an approved measurement plan.</p>
           </li>
-          <li class="col-sm-6 col-lg-3">
-            <div class="step-card">
-              <h3>Build</h3>
-              <p>Agile sprints with weekly demos.</p>
-              <span class="step-time">Week 6–10</span>
-            </div>
+          <li style="--accent: var(--dot-tech)">
+            <h3>Deploy and develop</h3>
+            <p>We implement tags, conversions and dashboards, and test every one.</p>
+            <p class="step-get">You get: verified tracking and a live dashboard.</p>
           </li>
-          <li class="col-sm-6 col-lg-3">
-            <div class="step-card">
-              <h3>Grow</h3>
-              <p>Measure, learn and keep improving.</p>
-              <span class="step-time">Ongoing</span>
-            </div>
+          <li style="--accent: var(--dot-marketing)">
+            <h3>Drive and optimize</h3>
+            <p>We monitor data quality and report monthly on channel ROI.</p>
+            <p class="step-get">You get: monthly ROI reporting and alerts.</p>
           </li>
         </ol>
-      </div>
-    </section>
+        <p class="note">We test every tag before go-live and monitor data quality after, so numbers stay trustworthy.</p>
+      </section>
 
-    <!-- ===== About ===== -->
-    <section id="about" class="section">
-      <div class="container">
-        <div class="row g-4 align-items-center">
-          <div class="col-lg-6">
-            <h2 class="section-title">About Mahishika Digital</h2>
-            <p>We are a team of strategists, designers and engineers who partner with startups and enterprises to build digital products people love.</p>
+      <!-- ===== Tools ===== -->
+      <section class="section" aria-labelledby="tools-title">
+        <h2 id="tools-title" class="section-title">Tools we work in.</h2>
+        <ul class="chips">
+          <li>Google Analytics 4</li><li>Google Tag Manager</li><li>Looker Studio</li>
+          <li>Meta Conversions API</li><li>BigQuery</li><li>HubSpot</li>
+        </ul>
+      </section>
+
+      <!-- ===== Portfolio ===== -->
+      <section id="portfolio" class="section" aria-labelledby="portfolio-title">
+        <h2 id="portfolio-title" class="section-title">Data that finally matched the bank account.</h2>
+        <p class="section-sub">Sample projects, ready to be replaced with real portfolio pieces.</p>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <article class="case-card">
+              <img src="images/case-retail.svg" alt="" width="622" height="280" loading="lazy" decoding="async">
+              <p class="case-meta">Retail and e-commerce <span class="dots" aria-hidden="true"><span style="--dot: var(--dot-design)"></span><span style="--dot: var(--dot-tech)"></span><span style="--dot: var(--dot-marketing)"></span></span></p>
+              <h3>ShopNest: one revenue number across Google, Meta and the store</h3>
+              <p class="case-label">The problem</p>
+              <p>Ad platforms claimed 1.6x the sales the store recorded.</p>
+              <p class="case-label">The result</p>
+              <p class="case-result"><strong>+38%</strong> ROAS in two quarters</p>
+            </article>
           </div>
-          <div class="col-lg-6">
-            <dl class="stats">
-              <div><dt>Projects delivered</dt><dd>250+</dd></div>
-              <div><dt>Happy clients</dt><dd>120+</dd></div>
-              <div><dt>Years of experience</dt><dd>10</dd></div>
-            </dl>
+          <div class="col-md-6">
+            <article class="case-card">
+              <img src="images/case-saas.svg" alt="" width="622" height="280" loading="lazy" decoding="async">
+              <p class="case-meta">Technology and SaaS <span class="dots" aria-hidden="true"><span style="--dot: var(--dot-design)"></span><span style="--dot: var(--dot-tech)"></span><span style="--dot: var(--dot-marketing)"></span></span></p>
+              <h3>CarePlus: every demo request traced back to its campaign</h3>
+              <p class="case-label">The problem</p>
+              <p>Leads lost their source between the form and the CRM.</p>
+              <p class="case-label">The result</p>
+              <p class="case-result"><strong>−27%</strong> cost per qualified lead</p>
+            </article>
           </div>
         </div>
-      </div>
-    </section>
+        <figure class="testimonial">
+          <p class="testimonial-tag">Sample copy, replace with a real testimonial</p>
+          <blockquote>“For the first time, marketing and finance agree on what each channel is worth.”</blockquote>
+          <figcaption>[Name], [Role], [Company]</figcaption>
+        </figure>
+      </section>
 
-    <!-- ===== Consultation form ===== -->
-    <section id="consultation" class="section section-alt">
-      <div class="container">
-        <div class="form-box">
-          <h2 class="section-title">Book a consultation</h2>
-          <p>Tell us about your project and we will reply within one business day.</p>
+      <!-- ===== Industries ===== -->
+      <section id="industries" class="section" aria-labelledby="sectors-title">
+        <h2 id="sectors-title" class="section-title">Analytics across sectors.</h2>
+        <p class="section-sub">Any business spending on more than one channel.</p>
+        <ul class="chips">
+          <li>Retail and e-commerce</li><li>Technology and SaaS</li><li>BFSI</li>
+          <li>Education and EdTech</li><li>Travel and hospitality</li>
+        </ul>
+      </section>
 
-          <form id="consultation-form" class="row g-3">
-            <div class="col-md-6">
-              <label class="form-label" for="name">Name</label>
-              <input class="form-control" id="name" name="name" autocomplete="name" required>
-              <div class="invalid-feedback"></div>
-            </div>
-            <div class="col-md-6">
-              <label class="form-label" for="email">Email</label>
-              <input class="form-control" id="email" name="email" type="email" autocomplete="email" required>
-              <div class="invalid-feedback"></div>
-            </div>
-            <div class="col-md-6">
-              <label class="form-label" for="company">Company (optional)</label>
-              <input class="form-control" id="company" name="company" autocomplete="organization">
-              <div class="invalid-feedback"></div>
-            </div>
-            <div class="col-md-6">
-              <label class="form-label" for="service">Service</label>
-              <select class="form-select" id="service" name="service">
-                <option>Brand Strategy</option>
-                <option>UX &amp; UI Design</option>
-                <option>Web Development</option>
-                <option>Mobile Apps</option>
-                <option>Performance Marketing</option>
-                <option>Content &amp; Social</option>
-              </select>
-              <div class="invalid-feedback"></div>
-            </div>
-            <div class="col-12">
-              <label class="form-label" for="message">Message</label>
-              <textarea class="form-control" id="message" name="message" rows="4" minlength="10" required></textarea>
-              <div class="invalid-feedback"></div>
-            </div>
-            <div class="col-12">
-              <button class="btn-cta" type="submit">Send request</button>
-              <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
-            </div>
-          </form>
+      <!-- ===== Pricing models ===== -->
+      <section class="section" aria-labelledby="ways-title">
+        <h2 id="ways-title" class="section-title">Ways to work together.</h2>
+        <p class="section-sub">A one-time audit, a full setup, or ongoing measurement.</p>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <article class="plan" style="--accent: var(--dot-design)">
+              <h3>Tracking audit</h3>
+              <p>Find every gap.</p>
+              <ul class="dot-list"><li>GA4, tag and pixel audit</li><li>Prioritised fix list</li><li>No ongoing commitment</li></ul>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="plan" style="--accent: var(--dot-tech)">
+              <h3>Full setup</h3>
+              <p>Tracking and dashboards, done properly.</p>
+              <ul class="dot-list"><li>GA4 and Tag Manager</li><li>Conversion tracking</li><li>Revenue dashboard</li></ul>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="plan" style="--accent: var(--dot-marketing)">
+              <h3>Measurement retainer</h3>
+              <p>Data you can keep trusting.</p>
+              <ul class="dot-list"><li>Monthly data-quality checks</li><li>New events as you grow</li><li>Monthly ROI reporting</li></ul>
+            </article>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <!-- ===== FAQ (native <details>: keyboard and screen reader friendly with no JS) ===== -->
+      <section id="faq" class="section" aria-labelledby="faq-title">
+        <h2 id="faq-title" class="section-title">Questions about analytics and tracking.</h2>
+        <div class="faq">
+          <details open>
+            <summary>Do we need GA4 if we already use other tools?</summary>
+            <p>Usually yes. GA4 is free, connects to Google Ads, and gives a neutral view across channels that platform reports don’t.</p>
+          </details>
+          <details>
+            <summary>What is server-side tracking, and do we need it?</summary>
+            <p>Server-side tracking sends events from your server instead of the browser, so ad blockers and browser limits lose less data. It helps most when you spend heavily on Meta or Google Ads.</p>
+          </details>
+          <details>
+            <summary>How do you handle cookie consent and privacy?</summary>
+            <p>We set up Google Consent Mode with your cookie banner, so tags only collect what each visitor allows, and we keep personal data out of analytics.</p>
+          </details>
+          <details>
+            <summary>Can you connect our CRM data to ad platforms?</summary>
+            <p>Yes. We send qualified leads and sales from HubSpot or your CRM back to Google Ads and Meta as offline conversions, so the platforms optimise for real revenue.</p>
+          </details>
+          <details>
+            <summary>How long does a tracking setup take?</summary>
+            <p>An audit takes about a week. A full setup with dashboards usually takes three to five weeks, depending on how many platforms and events you have.</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- ===== More from Marketing ===== -->
+      <section id="more" class="section" aria-labelledby="more-title">
+        <h2 id="more-title" class="section-title">More from Marketing.</h2>
+        <div class="row g-3">
+          <div class="col-md-4"><a class="link-card" href="#top"><span class="link-card-title">All Marketing services</span><span>SEO, paid ads, social, leads and analytics.</span></a></div>
+          <div class="col-md-4"><a class="link-card" href="#top"><span class="link-card-title">Lead Generation &amp; Funnels</span><span>Track every lead from click to deal.</span></a></div>
+          <div class="col-md-4"><a class="link-card" href="#top"><span class="link-card-title">Performance Marketing &amp; Paid Ads</span><span>Ads that optimise on real conversions.</span></a></div>
+        </div>
+      </section>
+
+      <!-- ===== Final CTA ===== -->
+      <section class="cta-banner" aria-labelledby="cta-title">
+        <h2 id="cta-title">Make every decision with numbers you trust.</h2>
+        <p>Tell us what you track today. We’ll show you what’s missing and what it’s costing you.</p>
+        <a class="btn-white" href="#audit">Book a growth audit</a>
+      </section>
+    </div>
   </main>
 
   <!-- Plain HTML links: always crawlable, even before the JS menu loads -->
   <footer class="site-footer">
     <div class="container">
       <div class="row g-4">
-        <div class="col-md-4">
-          <p class="footer-brand">Mahishika Digital</p>
-          <p>Strategy, design, development and marketing for ambitious brands.</p>
+        <div class="col-lg-4" id="about">
+          <a class="brand" href="#top">
+            <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+              <circle class="logo-ring" cx="23" cy="20" r="14"/>
+              <circle class="logo-dot" cx="23" cy="20" r="5"/>
+              <path class="logo-lines" d="M3 14h9M1.5 20h11M3 26h9"/>
+            </svg>
+            <span class="brand-name">Mahishika <span>Digital</span></span>
+          </a>
+          <p class="footer-about">Empowering brands with data-driven growth, visual storytelling, and modern digital infrastructure.</p>
         </div>
-        <nav class="col-6 col-md-4" aria-label="Footer services">
+        <nav class="col-6 col-md-4 col-lg-2" aria-label="Footer services">
           <p class="footer-title">Services</p>
           <ul class="footer-links">
-            <li><a href="#services">Brand Strategy</a></li>
-            <li><a href="#services">UX &amp; UI Design</a></li>
-            <li><a href="#services">Web Development</a></li>
-            <li><a href="#services">Performance Marketing</a></li>
+            <li><a href="#top">Design</a></li>
+            <li><a href="#top">Video</a></li>
+            <li><a href="#top">Tech</a></li>
+            <li><a href="#top">Marketing</a></li>
           </ul>
         </nav>
-        <nav class="col-6 col-md-4" aria-label="Footer company">
+        <nav class="col-6 col-md-4 col-lg-3" aria-label="Footer company">
           <p class="footer-title">Company</p>
           <ul class="footer-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#industries">Industries</a></li>
-            <li><a href="#work">Our Work</a></li>
-            <li><a href="#approach">Approach</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#consultation">Book a Consultation</a></li>
+            <li><a href="#more">Blog</a></li>
+            <li><a href="mailto:chat@mahishika.com?subject=Write%20for%20us">Write for us</a></li>
+            <li><a href="mailto:chat@mahishika.com?subject=Careers">Careers</a></li>
           </ul>
         </nav>
+        <div class="col-md-4 col-lg-3" id="contact">
+          <p class="footer-title">Contact</p>
+          <ul class="footer-links is-contact">
+            <li><a href="mailto:chat@mahishika.com">chat@mahishika.com</a></li>
+            <li><a href="tel:+918595117352">+91 8595 117 352</a></li>
+            <li class="footer-social">LinkedIn · Instagram · YouTube</li>
+          </ul>
+        </div>
       </div>
-      <p class="footer-copy">&copy; 2026 Mahishika Digital. All rights reserved.</p>
+      <p class="footer-copy">&copy; 2026 Mahishika Digital Pvt. Ltd. All rights reserved.</p>
     </div>
   </footer>
 </body>

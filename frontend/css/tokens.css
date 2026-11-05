@@ -1,18 +1,50 @@
-/* Design tokens: every color, spacing and type value used by the site lives here. */
+/* Poppins, self-hosted (latin subset). "Poppins Fallback" is Arial resized to
+   Poppins' metrics, so text doesn't jump when the real font arrives. */
+@font-face { font-family: "Poppins"; font-weight: 400; font-display: swap; src: url("../fonts/poppins-400.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 500; font-display: swap; src: url("../fonts/poppins-500.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 600; font-display: swap; src: url("../fonts/poppins-600.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 700; font-display: swap; src: url("../fonts/poppins-700.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-weight: 800; font-display: swap; src: url("../fonts/poppins-800.woff2") format("woff2"); }
+@font-face {
+  font-family: "Poppins Fallback";
+  src: local("Arial");
+  size-adjust: 112.1%;
+  ascent-override: 93.62%;
+  descent-override: 31.21%;
+  line-gap-override: 8.92%;
+}
+
+/* Design tokens: every color, spacing and type value used by the site lives here.
+   Colors are taken from the Zeplin design. */
 :root {
   /* Colors (all text colors pass WCAG AA on their backgrounds) */
   --color-bg: #ffffff;
-  --color-surface: #f6f7fb;
-  --color-surface-2: #eef0f8;
-  --color-text: #111827;
-  --color-muted: #4b5563;
-  --color-border: #e2e5ee;
-  --color-primary: #4338ca;
-  --color-primary-hover: #3730a3;
+  --color-surface: #f2f2f3;
+  --color-surface-2: #e9f5fa;
+  --color-text: #181e42;
+  --color-heading: #28326f;
+  --color-muted: #61656d;
+  --color-border: #e1e2e6;
+  --color-primary: #1270bf;
+  --color-primary-hover: #0e5c9e;
   --color-on-primary: #ffffff;
-  --color-accent: #0f766e;
+  --color-accent: #0b7a93;
+  --color-cyan: #32c1e2;
+  --color-cyan-soft: #d6f3f9;
   --color-focus: #b45309;
-  --color-overlay: rgba(17, 24, 39, 0.45);
+  --color-overlay: rgba(40, 50, 111, 0.32);
+  --color-mint: #b7ebd2;
+  --color-mint-soft: #e3f7ed;
+  --color-green: #10a55f;
+  --color-block: #28326f;
+  --color-on-block: #ffffff;
+  --color-tag: #fde9d0;
+
+  /* One color per service group (decorative only: dots, borders, bars) */
+  --dot-design: #f69313;
+  --dot-video: #db3226;
+  --dot-tech: #32c1e2;
+  --dot-marketing: #10a55f;
 
   /* Spacing scale */
   --space-1: 0.25rem;
@@ -25,41 +57,59 @@
   --space-8: 5rem;
 
   /* Typography */
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --text-xs: 0.8125rem;
+  --font-sans: "Poppins", "Poppins Fallback", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
+  --text-nav: 1.0625rem;
   --text-lg: 1.125rem;
   --text-xl: 1.375rem;
   --text-2xl: clamp(1.75rem, 1.3rem + 2vw, 2.5rem);
   --text-3xl: clamp(2.1rem, 1.4rem + 3.4vw, 3.75rem);
   --weight-medium: 500;
+  --weight-semibold: 600;
   --weight-bold: 700;
 
   /* Shape & motion */
-  --radius-sm: 6px;
+  --radius-sm: 8px;
   --radius: 12px;
-  --radius-lg: 20px;
-  --shadow: 0 18px 40px -12px rgba(17, 24, 39, 0.18);
+  --radius-lg: 16px;
+  --shadow: 0 24px 48px -16px rgba(24, 30, 66, 0.22);
+  --shadow-sm: 0 4px 14px rgba(24, 30, 66, 0.08);
   --transition: 160ms ease;
 
   /* Layout */
-  --header-h: 72px;
+  --header-h: 88px;
+}
+
+@media (max-width: 991.98px) {
+  :root {
+    --header-h: 72px;
+  }
 }
 
 /* Dark theme (toggled with the moon button, stored in localStorage) */
 [data-theme="dark"] {
-  --color-bg: #0b1020;
-  --color-surface: #131a2e;
-  --color-surface-2: #1b2340;
-  --color-text: #f3f4f6;
-  --color-muted: #a7b0c4;
-  --color-border: #263052;
-  --color-primary: #818cf8;
-  --color-primary-hover: #a5b4fc;
-  --color-on-primary: #0b1020;
-  --color-accent: #2dd4bf;
+  --color-bg: #0e1230;
+  --color-surface: #161b3d;
+  --color-surface-2: #1d2350;
+  --color-text: #eef0f8;
+  --color-heading: #dce1ff;
+  --color-muted: #a9aec4;
+  --color-border: #2a3163;
+  --color-primary: #5fa8ea;
+  --color-primary-hover: #8cc2f2;
+  --color-on-primary: #0e1230;
+  --color-accent: #4fd0ee;
+  --color-cyan: #4fd0ee;
+  --color-cyan-soft: rgba(50, 193, 226, 0.16);
   --color-focus: #fbbf24;
-  --color-overlay: rgba(0, 0, 0, 0.6);
-  --shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.6);
+  --color-overlay: rgba(0, 0, 0, 0.55);
+  --color-mint: #173f3a;
+  --color-mint-soft: #142e33;
+  --color-green: #34c47f;
+  --color-block: #1d2350;
+  --color-tag: #4a3518;
+  --shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.6);
+  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.35);
 }

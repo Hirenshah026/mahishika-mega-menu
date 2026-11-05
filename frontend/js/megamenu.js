@@ -1,4 +1,4 @@
-// Mega menu: builds the menu from data, then handles click, touch and keyboard.
+// Mega menu: builds the Services panel from data, then handles click, hover, touch and keyboard.
 const isDesktop = window.matchMedia('(min-width: 992px)');
 
 // Escape text coming from the API before putting it into HTML
@@ -8,68 +8,122 @@ function esc(text) {
   return div.innerHTML;
 }
 
-function renderMenuItem(category) {
-  const id = esc(category.slug);
+const arrow = '<span class="mm-arrow" aria-hidden="true">→</span>';
+const dot = (group) => `<span class="mm-dot" style="--dot: ${esc(group.color)}" aria-hidden="true"></span>`;
 
-  const links = category.sub_categories.map((sub) => `
+// Left column: one tab per group (Design, Video, Tech, Marketing)
+function renderTab(group, index) {
+  const id = esc(group.slug);
+  return `
+    <li role="presentation">
+      <button class="mm-tab" type="button" role="tab" id="mm-tab-${id}" aria-controls="mm-group-${id}"
+              aria-selected="${index === 0}" tabindex="${index === 0 ? 0 : -1}">
+        ${dot(group)}
+        <span class="mm-tab-text">
+          <span class="mm-tab-name">${esc(group.name)}</span>
+          <span class="mm-tab-count">${group.sub_categories.length} services</span>
+        </span>
+        <svg class="mm-tab-chevron" width="8" height="12" viewBox="0 0 8 12" aria-hidden="true"><path d="M2 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+    </li>`;
+}
+
+// Middle + right columns: the group's links and its featured project
+function renderGroup(group) {
+  const id = esc(group.slug);
+  const post = group.posts[0];
+
+  const links = group.sub_categories.map((sub) => `
     <li>
       <a class="mm-link" href="${esc(sub.url)}">
         <span class="mm-link-title">${esc(sub.name)}</span>
         <span class="mm-link-desc">${esc(sub.description)}</span>
+        ${arrow}
       </a>
     </li>`).join('');
 
-  const cards = category.posts.map((post) => `
-    <a class="mm-card" href="${esc(post.url)}">
-      ${post.image_url ? `<img src="${esc(post.image_url)}" alt="" width="600" height="400" loading="lazy" decoding="async">` : ''}
-      <span class="mm-card-type">${esc(post.type)}</span>
-      <span class="mm-card-title">${esc(post.title)}</span>
-      <span class="mm-card-text">${esc(post.excerpt)}</span>
-    </a>`).join('');
+  const featured = post ? `
+    <div class="mm-featured">
+      <p class="mm-eyebrow">Featured project</p>
+      <a class="mm-card" href="${esc(post.url)}">
+        ${post.image_url ? `<img src="${esc(post.image_url)}" alt="" width="432" height="260" loading="lazy" decoding="async">` : ''}
+        <span class="mm-card-title">${esc(post.title)}</span>
+        <span class="mm-card-link">View in portfolio ${arrow}</span>
+      </a>
+    </div>` : '';
 
   return `
-    <li class="mm-item">
-      <button class="mm-trigger" type="button" id="mm-btn-${id}" aria-expanded="false" aria-controls="mm-panel-${id}">
-        ${esc(category.name)}
-        <svg class="mm-chevron" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-      </button>
-      <div class="mm-panel" id="mm-panel-${id}" hidden>
-        <div class="container mm-panel-inner">
-          <div class="mm-intro">
-            <p class="mm-intro-title">${esc(category.name)}</p>
-            <p>${esc(category.description)}</p>
-          </div>
-          <ul class="mm-links">${links}</ul>
-          <div class="mm-featured">${cards}</div>
+    <div class="mm-group" role="tabpanel" id="mm-group-${id}" aria-labelledby="mm-tab-${id}">
+      <div class="mm-group-main">
+        <div class="mm-group-head">
+          <p class="mm-group-title">${dot(group)}${esc(group.name)} Services</p>
+          <a class="mm-hub" href="${esc(group.url)}">Explore ${esc(group.name)} hub ${arrow}</a>
         </div>
+        <p class="mm-group-desc">${esc(group.description)}</p>
+        <ul class="mm-links">${links}</ul>
       </div>
-    </li>`;
+      ${featured}
+    </div>`;
 }
 
-function createMegaMenu(nav, categories) {
-  const list = nav.querySelector('.mm-list');
+function renderPanel(groups) {
+  return `
+    <div class="mm-body">
+      <div class="mm-groups">
+        <p class="mm-eyebrow" id="mm-groups-label">Services</p>
+        <ul class="mm-tabs" role="tablist" aria-labelledby="mm-groups-label" aria-orientation="vertical">
+          ${groups.map(renderTab).join('')}
+        </ul>
+      </div>
+      ${groups.map(renderGroup).join('')}
+    </div>
+    <div class="mm-footer">
+      <p><strong>Not sure where to start?</strong> We'll map it with you.</p>
+      <div class="mm-footer-links">
+        <a class="mm-footer-cta" href="#consultation">Get a free growth audit ${arrow}</a>
+        <a href="#services">All services ${arrow}</a>
+      </div>
+    </div>`;
+}
+
+function createMegaMenu(nav, groups) {
+  const trigger = nav.querySelector('.mm-trigger');
+  const panel = document.getElementById(trigger.getAttribute('aria-controls'));
+  const item = trigger.closest('li');
+  const backdrop = document.querySelector('.mm-backdrop');
   const navToggle = document.querySelector('.nav-toggle');
 
-  list.innerHTML = categories.map(renderMenuItem).join('');
-  const triggers = [...list.querySelectorAll('.mm-trigger')];
+  panel.innerHTML = renderPanel(groups);
+  const tabs = [...panel.querySelectorAll('.mm-tab')];
+  const groupPanels = [...panel.querySelectorAll('.mm-group')];
+  const topItems = [...nav.querySelectorAll('.mm-top')];
+  let active = 0;
 
-  const panelOf = (trigger) => document.getElementById(trigger.getAttribute('aria-controls'));
-  const openTrigger = () => triggers.find((t) => t.getAttribute('aria-expanded') === 'true');
+  const isOpen = () => trigger.getAttribute('aria-expanded') === 'true';
 
-  function openPanel(trigger) {
-    closePanels();
+  function openPanel() {
     trigger.setAttribute('aria-expanded', 'true');
-    panelOf(trigger).hidden = false;
-    track('menu_open', { menu_category: trigger.textContent.trim() });
+    panel.hidden = false;
+    backdrop.hidden = !isDesktop.matches;
+    track('menu_open', { menu_category: 'Services' });
   }
 
-  function closePanel(trigger) {
+  function closePanel() {
     trigger.setAttribute('aria-expanded', 'false');
-    panelOf(trigger).hidden = true;
+    panel.hidden = true;
+    backdrop.hidden = true;
   }
 
-  function closePanels() {
-    triggers.forEach(closePanel);
+  // Desktop shows one group at a time (tabs). Mobile lists every group.
+  function selectGroup(index) {
+    active = index;
+    tabs.forEach((tab, i) => {
+      tab.setAttribute('aria-selected', String(i === index));
+      tab.tabIndex = i === index ? 0 : -1;
+    });
+    groupPanels.forEach((group, i) => {
+      group.hidden = isDesktop.matches && i !== index;
+    });
   }
 
   // Mobile drawer (hamburger)
@@ -78,22 +132,20 @@ function createMegaMenu(nav, categories) {
     navToggle.setAttribute('aria-expanded', String(open));
     navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     document.body.classList.toggle('nav-open', open);
-    if (!open) closePanels();
+    if (!open) closePanel();
   }
 
-  function focusTrigger(index) {
-    triggers[(index + triggers.length) % triggers.length].focus();
-  }
+  const wrap = (list, index) => list[(index + list.length) % list.length];
+  const linksIn = (el) => [...el.querySelectorAll('a')];
 
-  // Click on a top-level button: open or close its panel
-  triggers.forEach((trigger) => {
-    trigger.addEventListener('click', () => {
-      if (trigger.getAttribute('aria-expanded') === 'true') closePanel(trigger);
-      else openPanel(trigger);
-    });
-  });
-
+  trigger.addEventListener('click', () => (isOpen() ? closePanel() : openPanel()));
   navToggle.addEventListener('click', () => setDrawer(!nav.classList.contains('is-open')));
+
+  // Click or hover a group to show its links
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => selectGroup(i));
+    tab.addEventListener('mouseenter', () => { if (isDesktop.matches) selectGroup(i); });
+  });
 
   // Click on any link inside the menu: track it and close the menu
   nav.addEventListener('click', (event) => {
@@ -103,55 +155,71 @@ function createMegaMenu(nav, categories) {
     setDrawer(false);
   });
 
-  // Click outside the menu closes the open panel
+  // Click outside the menu (including the dimmed backdrop) closes the panel
   document.addEventListener('click', (event) => {
-    if (!nav.contains(event.target)) closePanels();
+    if (!nav.contains(event.target)) closePanel();
   });
 
-  // Desktop: tabbing out of an open panel closes it
-  list.addEventListener('focusout', (event) => {
-    const item = event.target.closest('.mm-item');
-    if (isDesktop.matches && event.relatedTarget && !item.contains(event.relatedTarget)) {
-      closePanel(item.querySelector('.mm-trigger'));
-    }
+  // Desktop: tabbing out of the open panel closes it
+  item.addEventListener('focusout', (event) => {
+    if (isDesktop.matches && event.relatedTarget && !item.contains(event.relatedTarget)) closePanel();
   });
 
   // Keyboard support
-  list.addEventListener('keydown', (event) => {
-    const trigger = event.target.closest('.mm-trigger');
-    const panel = event.target.closest('.mm-panel');
+  nav.addEventListener('keydown', (event) => {
+    const { key, target } = event;
     const nextKey = isDesktop.matches ? 'ArrowRight' : 'ArrowDown';
     const prevKey = isDesktop.matches ? 'ArrowLeft' : 'ArrowUp';
 
-    if (trigger) {
-      const index = triggers.indexOf(trigger);
-      if (event.key === nextKey) focusTrigger(index + 1);
-      else if (event.key === prevKey) focusTrigger(index - 1);
-      else if (event.key === 'Home') focusTrigger(0);
-      else if (event.key === 'End') focusTrigger(-1);
-      else if (event.key === 'ArrowDown' && isDesktop.matches) {
-        openPanel(trigger);
-        panelOf(trigger).querySelector('a').focus();
+    // Top-level items: Services, Portfolio, Industries...
+    if (target.classList.contains('mm-top')) {
+      const index = topItems.indexOf(target);
+      if (key === nextKey) wrap(topItems, index + 1).focus();
+      else if (key === prevKey) wrap(topItems, index - 1).focus();
+      else if (key === 'Home') topItems[0].focus();
+      else if (key === 'End') topItems[topItems.length - 1].focus();
+      else if (key === 'ArrowDown' && target === trigger && isDesktop.matches) {
+        openPanel();
+        tabs[active].focus();
       } else return;
       event.preventDefault();
+      return;
     }
 
-    // Up/Down arrows move between links inside an open panel
-    if (panel && (event.key === 'ArrowDown' || event.key === 'ArrowUp')) {
-      const links = [...panel.querySelectorAll('a')];
-      const index = links.indexOf(event.target);
-      const step = event.key === 'ArrowDown' ? 1 : -1;
-      links[(index + step + links.length) % links.length].focus();
+    // Group tabs: Up/Down switch group, Right jumps into its links
+    if (target.classList.contains('mm-tab')) {
+      const index = tabs.indexOf(target);
+      if (key === 'ArrowDown') selectGroup((index + 1) % tabs.length);
+      else if (key === 'ArrowUp') selectGroup((index - 1 + tabs.length) % tabs.length);
+      else if (key === 'Home') selectGroup(0);
+      else if (key === 'End') selectGroup(tabs.length - 1);
+      else if (key === 'ArrowRight') {
+        linksIn(groupPanels[active])[0].focus();
+        event.preventDefault();
+        return;
+      } else return;
+      tabs[active].focus();
       event.preventDefault();
+      return;
     }
+
+    // Links inside a group or the footer: Up/Down move between them, Left goes back to the tabs
+    const box = target.closest('.mm-group, .mm-footer');
+    if (!box) return;
+    const links = linksIn(box);
+    const index = links.indexOf(target);
+    if (key === 'ArrowDown') wrap(links, index + 1).focus();
+    else if (key === 'ArrowUp') wrap(links, index - 1).focus();
+    else if (key === 'ArrowLeft' && isDesktop.matches && box.classList.contains('mm-group')) tabs[active].focus();
+    else return;
+    event.preventDefault();
   });
 
-  // Escape: close the open panel first, then the mobile drawer
+  // Escape: close the panel first, then the mobile drawer
   document.addEventListener('keydown', (event) => {
     if (event.key !== 'Escape') return;
-    const trigger = openTrigger();
-    if (trigger) {
-      closePanel(trigger);
+    if (isOpen()) {
+      closePanel();
       trigger.focus();
     } else if (nav.classList.contains('is-open')) {
       setDrawer(false);
@@ -159,6 +227,11 @@ function createMegaMenu(nav, categories) {
     }
   });
 
-  // Reset everything when switching between mobile and desktop layouts
-  isDesktop.addEventListener('change', () => setDrawer(false));
+  // Reset when switching between mobile and desktop layouts
+  isDesktop.addEventListener('change', () => {
+    setDrawer(false);
+    selectGroup(active);
+  });
+
+  selectGroup(0);
 }
