@@ -93,8 +93,16 @@ On screens below 992px the groups are listed one after another inside the drawer
   Inside the open panel, hovering a group switches to it, as in the design.
 
 ## Performance
-**Lighthouse: 100 / 100 / 100 / 100** (Performance, Accessibility, Best Practices, SEO) on mobile and desktop.
-Full reports: [docs/lighthouse/](docs/lighthouse/).
+**Lighthouse** (Performance / Accessibility / Best Practices / SEO):
+- Mobile: **95** / 100 / 100 / 100 (three runs: 94, 95, 99; the middle one is saved)
+- Desktop: **100** / 100 / 100 / 100
+
+Full reports: [docs/lighthouse/](docs/lighthouse/). Mobile Performance varies a few points between runs with network
+and CPU load. Netlify's own toolbar script (`/.netlify/scripts/hud`) adds 11 KB on the live site; turning off the
+Netlify Drawer in the site settings removes it.
+
+- Off-screen sections use `content-visibility: auto`, so the browser skips laying them out until they scroll near.
+  This cut the longest task on a throttled phone by about 40%.
 
 - Bootstrap is self-hosted and purged to the classes this page uses (233 KB → 12 KB) with PurgeCSS.
   After adding new Bootstrap classes, run `npx purgecss@6.0.0 --config purgecss.config.cjs` in `frontend/`.
@@ -102,7 +110,7 @@ Full reports: [docs/lighthouse/](docs/lighthouse/).
   Bump the number after editing a file.
 - The Laravel API is only called on `localhost`. The live site reads `data/menu.json`, so there are no blocked
   `http://` requests or console errors.
-- No framework JS. Poppins (the design's font) is self-hosted: five 8 KB files, the two main weights preloaded,
+- No framework JS. Poppins (the design's font) is self-hosted: four 8 KB files (400–700), the two main weights preloaded,
   and a size-matched fallback font so text doesn't shift when Poppins loads.
 - Images have `width`/`height` (no layout shift) and `loading="lazy"`.
 - The header has a fixed height, so the menu loading late does not move the page.

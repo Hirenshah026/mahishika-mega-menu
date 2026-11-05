@@ -329,6 +329,9 @@
 /* ---------- Sections ---------- */
 .section {
   padding: 64px 0;
+  /* Skip layout of off-screen sections until they scroll near (faster first load on phones) */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 700px;
 }
 
 .section + .section {
@@ -851,6 +854,8 @@
 
 /* ---------- Footer ---------- */
 .site-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 400px;
   padding: 56px 0 var(--space-5);
   border-top: 1px solid var(--color-border);
   font-size: 0.9375rem;

@@ -30,7 +30,9 @@ function setTheme(theme) {
   try { localStorage.setItem('theme', theme); } catch (e) { /* storage blocked */ }
 }
 
-setTheme(document.documentElement.dataset.theme || 'light');
+// The theme is already applied by the script in <head>. Only sync the button here:
+// writing data-theme again would make the browser restyle the whole page for nothing.
+themeToggle.setAttribute('aria-pressed', String(document.documentElement.dataset.theme === 'dark'));
 themeToggle.addEventListener('click', () => {
   setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
 });
